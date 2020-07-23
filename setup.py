@@ -24,6 +24,10 @@ import io
 __version__ = '0.9.2'
 FASTTEXT_SRC = "src"
 
+custom_lib_path="/tmp/custom_lib"
+sys.path.append(custom_lib_path) 
+print("sys.path : " sys.path)
+
 # Based on https://github.com/pybind/python_example
 
 class get_pybind_include(object):
