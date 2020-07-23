@@ -26,7 +26,7 @@ FASTTEXT_SRC = "src"
 
 custom_lib_path="/tmp/custom_lib"
 sys.path.append(custom_lib_path) 
-print("sys.path : " + sys.path)
+print("sys.path : " + str(sys.path))
 
 # Based on https://github.com/pybind/python_example
 
