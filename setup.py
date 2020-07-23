@@ -24,10 +24,6 @@ import io
 __version__ = '0.9.2'
 FASTTEXT_SRC = "src"
 
-custom_lib_path="/tmp/custom_lib"
-sys.path.append(custom_lib_path) 
-print("sys.path : " + str(sys.path))
-
 # Based on https://github.com/pybind/python_example
 
 class get_pybind_include(object):
@@ -41,7 +37,11 @@ class get_pybind_include(object):
         try:
             import pybind11
         except ImportError:
-            if subprocess.call([sys.executable, '-m', 'pip', 'install', 'pybind11']):
+            custom_lib_path="/tmp/custom_lib"
+            sys.path.append(custom_lib_path) 
+            print("sys.path : " + str(sys.path))
+
+            if subprocess.call([sys.executable, '-m', 'pip', 'install', '--target=/tmp/custom_lib', '--no-cache-dir', '-b', '/tmp/pip_builds', 'pybind11']):
                 raise RuntimeError('pybind11 install failed.')
 
         self.user = user
